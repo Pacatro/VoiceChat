@@ -15,6 +15,7 @@ class Recorder:
         self._RATE = rate
         self._CHUNK = chunk
         self._FILE = "./audio/audio.mp3"
+        self._INPUT = True
         self._FRAMES = []
         
         if self._CHANNELS < 0 or self._RATE < 0 or self._CHUNK < 0 or self._FILE == "" or self._FRAMES != []: 
@@ -25,7 +26,7 @@ class Recorder:
             self._FRAMES = []
 
     def rec(self):
-        stream = self._AUDIO.open(format = self._FORMAT, channels = self._CHANNELS, rate = self._RATE, input = True, frames_per_buffer = self._CHUNK)
+        stream = self._AUDIO.open(format = self._FORMAT, channels = self._CHANNELS, rate = self._RATE, input = self._INPUT, frames_per_buffer = self._CHUNK)
 
         while True:
             try:
@@ -38,7 +39,7 @@ class Recorder:
         
         stream.stop_stream()
         stream.close()
-        self._AUDIO.terminate()
+        #self._AUDIO.terminate()
         
     def exportFile(self):
         waveFile = wave.open(self._FILE, 'wb')
