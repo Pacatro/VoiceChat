@@ -1,6 +1,7 @@
 import pyaudio
 import wave
 
+
 class Recorder:
     _FORMAT = pyaudio.paInt16
     _CHANNELS: int
@@ -9,6 +10,7 @@ class Recorder:
     _FILE: str
     _FRAMES: list
     _AUDIO = pyaudio.PyAudio()
+    _STREAM: pyaudio.Stream
     
     def __init__(self, channels = 2, rate = 44100, chunk = 1024) -> None:
         self._CHANNELS = channels
@@ -24,22 +26,20 @@ class Recorder:
             self._CHUNK = 1024
             self._FILE = "./audio/audio.mp3"
             self._FRAMES = []
+            
+        self._STREAM = self._AUDIO.open(format = self._FORMAT, channels = self._CHANNELS, rate = self._RATE, input = self._INPUT, frames_per_buffer = self._CHUNK)
 
-    def rec(self):
-        stream = self._AUDIO.open(format = self._FORMAT, channels = self._CHANNELS, rate = self._RATE, input = self._INPUT, frames_per_buffer = self._CHUNK)
-
+    def rec(self):                
         while True:
             try:
-                data = stream.read(self._CHUNK)
+                data = self._STREAM.read(self._CHUNK)
                 self._FRAMES.append(data)
             except KeyboardInterrupt:
                 break
             
         print("\nGrabación terminada\n")
         
-        stream.stop_stream()
-        stream.close()
-        #self._AUDIO.terminate()
+        self._STREAM.close()
         
     def exportFile(self):
         waveFile = wave.open(self._FILE, 'wb')

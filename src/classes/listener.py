@@ -18,7 +18,5 @@ class Listener:
         
         if(result["text"] == ""):
             return "No ha escuchado nada :(\n"
-        
+                
         return result["text"]
-    
-    

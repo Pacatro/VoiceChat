@@ -1,33 +1,7 @@
 import os
-from classes import recorder, listener, bot
 from functions import functions as f
 
-API_TOKEN = "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"
-
-def talk_and_response(r: recorder.Recorder, l: listener.Listener) -> str:
-    os.system(f.command())
-    
-    print("Grabando...")
-    print("Pulsa 'control + c' para parar")
-    r.rec()
-    r.exportFile()
-    
-    print("Transcribiendo...")
-    answer = l.listen_audio()
-    
-    print("\nAnswer:\n", answer)
-    
-    res = bot.Bot(API_TOKEN, answer)
-    response = res.respond()
-    
-    answer = ""
-    
-    return response
-
 def main():
-    r = recorder.Recorder()
-    l = listener.Listener()
-    
     os.system(f.command())
     init = True
     
@@ -37,11 +11,13 @@ def main():
         option = f.menu()
         
         if option == 1:
-            response = talk_and_response(r, l)    
+            response = f.listen_and_response()    
             print("\nResponse:", response)
             input("\nPress 'Enter' to continue\n")
+            os.system(f.command())
         
         elif option == 2:
+            os.system(f.command())
             init = False
         
         else:
