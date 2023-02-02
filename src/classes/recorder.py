@@ -1,7 +1,6 @@
 import pyaudio
 import wave
 
-
 class Recorder:
     _FORMAT = pyaudio.paInt16
     _CHANNELS: int
@@ -41,7 +40,6 @@ class Recorder:
         
         self._STREAM.close()
         
-    def exportFile(self):
         waveFile = wave.open(self._FILE, 'wb')
         waveFile.setnchannels(self._CHANNELS)
         waveFile.setsampwidth(self._AUDIO.get_sample_size(self._FORMAT))

@@ -1,34 +1,29 @@
-import openai
+"""
+    The bot recive a command as input and try to do the action dictated by the command.
+    
+    For example: 'Open YouTube'
+    
+    This command is formed by a verb (Open) and a subject (YouTube).
+    The Bot will do the instruction that says the verb.
+"""
+
+import webbrowser as wb
+import os
+import subprocess
 
 class Bot:
-    _TOKEN: str
-    _PROMPT: str
+    _VERB: str
+    _SUBJECT: str
     
-    def __init__(self, token, prompt) -> None:
-        self._TOKEN = token
-        self._PROMPT = prompt
+    def __init__(self, order: str) -> bool:
+        div_order = order.split()
+        self._VERB = div_order[0].lower()
+        self._SUBJECT = div_order[1].lower().replace('.', '')
         
-        if self._TOKEN == "":
-            print("You should have an OpenAI token.")
-            return
-        elif self._PROMPT == "":
-            print("You should write a prompt to talk with the bot.")
-            return
-    
-    def respond(self) -> str:
-        openai.api_key = self._TOKEN
-
-        response = openai.Completion.create(
-            model = "text-davinci-003",
-            prompt = self._PROMPT,
-            temperature = 0.9,
-            max_tokens = 150,
-            top_p = 1,
-            frequency_penalty = 0.0,
-            presence_penalty = 0.6,
-            stop = [" Human:", " AI:"]
-        )
-        
-        return response.choices[0].text
-    
+        if self._VERB == "" or self._SUBJECT == "":
+            print("Can't get a verb or subject")
+            print("Verb:", self._VERB + "\n" + "Subject:", self._SUBJECT)
             
+    def open_orders(self):
+        if(self._VERB == "open"):
+            subprocess.call(self._SUBJECT)

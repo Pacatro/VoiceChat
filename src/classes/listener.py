@@ -12,7 +12,7 @@ class Listener:
             self._WHISPER_MODEL = "small"
             self._AUDIO_DIR = "./audio/audio.mp3"
             
-    def listen_audio(self) -> str:
+    def transcribe_audio(self) -> str:
         model = whisper.load_model(self._WHISPER_MODEL)
         result = model.transcribe(self._AUDIO_DIR)
         
