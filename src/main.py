@@ -12,9 +12,9 @@ def main():
         
         if option == 1:
             answer = f.listen_and_response()    
-            print("\nResponse:", answer)
+            print("\nRespuesta:", answer)
             f.bot_response(answer)
-            input("\nPress 'Enter' to continue\n")
+            input("\nPulsa 'Enter' para continuar\n")
             os.system(f.command())
         
         elif option == 2:

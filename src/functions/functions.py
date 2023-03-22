@@ -28,10 +28,10 @@ def listen_and_response() -> str:
     r.rec()
     
     print("Transcribiendo...")
-    answer = l.transcribe_audio()
+    transcription = l.transcribe_audio()
     
-    return answer
+    return transcription
 
-def bot_response(order: str):
-    b = bot.Bot(order)
-    b.open_orders()
+def bot_response(prompt: str):
+    b = bot.Bot(prompt)
+    b.response()

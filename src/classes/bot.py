@@ -1,29 +1,19 @@
-"""
-    The bot recive a command as input and try to do the action dictated by the command.
-    
-    For example: 'Open YouTube'
-    
-    This command is formed by a verb (Open) and a subject (YouTube).
-    The Bot will do the instruction that says the verb.
-"""
-
-import webbrowser as wb
-import os
-import subprocess
+from revChatGPT.V3 import Chatbot
 
 class Bot:
-    _VERB: str
-    _SUBJECT: str
+    _API_KEY: str
+    _PROMPT: str
     
-    def __init__(self, order: str) -> bool:
-        div_order = order.split()
-        self._VERB = div_order[0].lower()
-        self._SUBJECT = div_order[1].lower().replace('.', '')
+    def __init__(self, prompt):
+        self._API_KEY = "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"
+        self._PROMPT = prompt
         
-        if self._VERB == "" or self._SUBJECT == "":
-            print("Can't get a verb or subject")
-            print("Verb:", self._VERB + "\n" + "Subject:", self._SUBJECT)
-            
-    def open_orders(self):
-        if(self._VERB == "open"):
-            subprocess.call(self._SUBJECT)
+        if prompt == "":
+            print("Prompt no detectado.")
+            exit()
+    
+    def response(self):
+        chatbot = Chatbot(api_key=self._API_KEY)
+
+        for data in chatbot.ask(self._PROMPT):
+            print(data, end="", flush=True)
