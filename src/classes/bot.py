@@ -1,11 +1,13 @@
 from revChatGPT.V3 import Chatbot
 
 class Bot:
-    _API_KEY: str
     _PROMPT: str
+    _CHATBOT: Chatbot
     
-    def __init__(self, prompt):
-        self._API_KEY = "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"
+    def __init__(self):
+        self._CHATBOT = Chatbot(api_key="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")
+            
+    def set_prompt(self, prompt: str):
         self._PROMPT = prompt
         
         if prompt == "":
@@ -13,7 +15,4 @@ class Bot:
             exit()
     
     def response(self):
-        chatbot = Chatbot(api_key=self._API_KEY)
-
-        for data in chatbot.ask(self._PROMPT):
-            print(data, end="", flush=True)
+        print("Asistente:", self._CHATBOT.ask(self._PROMPT))

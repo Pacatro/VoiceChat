@@ -1,5 +1,4 @@
 import platform
-import os
 from classes import recorder, listener, bot
 
 def menu() -> int:
@@ -12,14 +11,12 @@ def menu() -> int:
 
 def command():
     system_os = platform.system()
-    if system_os == 'Linux':
+    if system_os == "Linux":
         return "clear"
 
     return "cls"
 
 def listen_and_response() -> str:
-    os.system(command())
-    
     r = recorder.Recorder()
     l = listener.Listener()
     
@@ -27,11 +24,10 @@ def listen_and_response() -> str:
     print("Pulsa 'control + c' para parar")
     r.rec()
     
-    print("Transcribiendo...")
     transcription = l.transcribe_audio()
     
     return transcription
 
-def bot_response(prompt: str):
-    b = bot.Bot(prompt)
+def bot_response(b: bot.Bot, prompt: str):
+    b.set_prompt(prompt)
     b.response()
