@@ -30,4 +30,5 @@ def listen_and_response() -> str:
 
 def bot_response(b: bot.Bot, prompt: str):
     b.set_prompt(prompt)
+    print("Escribiendo...\n")
     b.response()
