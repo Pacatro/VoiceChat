@@ -15,7 +15,7 @@ class Recorder:
         self._CHANNELS = channels
         self._RATE = rate
         self._CHUNK = chunk
-        self._FILE = "./audio/audio.mp3"
+        self._FILE = "./audio/question.mp3"
         self._INPUT = True
         self._FRAMES = []
         
@@ -23,7 +23,7 @@ class Recorder:
             self._CHANNELS = 2
             self._RATE = 44100
             self._CHUNK = 1024
-            self._FILE = "./audio/audio.mp3"
+            self._FILE = "./audio/question.mp3"
             self._FRAMES = []
             
         self._STREAM = self._AUDIO.open(format = self._FORMAT, channels = self._CHANNELS, rate = self._RATE, input = self._INPUT, frames_per_buffer = self._CHUNK)

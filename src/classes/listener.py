@@ -7,11 +7,11 @@ class Listener:
     
     def __init__(self, model = "small") -> None:
         self._WHISPER_MODEL = model
-        self._AUDIO_DIR = "./audio/audio.mp3"
+        self._AUDIO_DIR = "./audio/question.mp3"
         
         if self._WHISPER_MODEL == "" or self._AUDIO_DIR == "":
             self._WHISPER_MODEL = "small"
-            self._AUDIO_DIR = "./audio/audio.mp3"
+            self._AUDIO_DIR = "./audio/question.mp3"
             
     def transcribe_audio(self) -> str:
         model = whisper.load_model(self._WHISPER_MODEL)
