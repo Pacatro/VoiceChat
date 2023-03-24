@@ -1,6 +1,8 @@
 #!/bin/bash
 
-echo "Installing dependencies..."
+toilet -f future 'WELCOME!'
+
+echo -e "\nInstalling dependencies..."
 
 #PyAudio
 sudo apt-get install libasound-dev portaudio19-dev libportaudio2 libportaudiocpp0
