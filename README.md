@@ -10,18 +10,18 @@ Before start you need to have:
 ## Instalation
 - Step 1: Clone this repository.
 ```bash
-	git clone https://github.com/Pacatro/VoiceChat.git
+git clone https://github.com/Pacatro/VoiceChat.git
 ```
 -  Step 2: Give privileges to the installation bash script.
 ```bash
-	chmod u+x installation.sh
+chmod u+x installation.sh
 ```
 - Step 3: Run the srcipt:
 ```bash
-	./installation.sh
+./installation.sh
 ```
 - Step 4: Run the program:
 ```bash
-	cd src
-	python3 main.py <api_key> 
+cd src
+python3 main.py <api_key> 
 ```
