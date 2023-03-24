@@ -1,9 +1,18 @@
 import os
 from functions import functions as f
 from classes import bot
+from sys import argv
 
 def main():
-    b = bot.Bot()
+    if len(argv) != 2:
+        print("You need to have an OpenAI API key")
+        print("Use example: python3 main.py <api_key>")
+        return 0
+    
+    api_key = argv[1]
+    
+    print(api_key)
+    b = bot.Bot(api_key)
     os.system(f.command())
     init = True
     
