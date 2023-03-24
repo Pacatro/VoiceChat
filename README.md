@@ -7,7 +7,7 @@ Before start you need to have:
 - Pip
 - OpenAI API Key
 
-## Instalation
+## Instalation (Linux only)
 - Step 1: Clone this repository.
 ```bash
 git clone https://github.com/Pacatro/VoiceChat.git
