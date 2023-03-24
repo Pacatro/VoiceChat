@@ -15,6 +15,7 @@ git clone https://github.com/Pacatro/VoiceChat.git
 
 -  Step 2: Give privileges to the installation bash script.
 ```bash
+cd VoiceChat
 chmod u+x installation.sh
 ```
 
