@@ -11,7 +11,6 @@ def main():
     
     api_key = argv[1]
     
-    print(api_key)
     b = bot.Bot(api_key)
     os.system(f.command())
     init = True
