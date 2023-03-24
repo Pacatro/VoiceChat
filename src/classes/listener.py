@@ -1,5 +1,4 @@
 import whisper
-import os
 
 class Listener:
     _WHISPER_MODEL: str
@@ -20,5 +19,4 @@ class Listener:
         if(result["text"] == ""):
             return "No ha escuchado nada :(\n"
         
-        os.remove(self._AUDIO_DIR)   
         return result["text"]
