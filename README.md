@@ -1,5 +1,5 @@
 # VoiceChat
-This programa allows you to have a voice conversation with ChatGPT.
+This program allows you to have a voice conversation with ChatGPT.
 
 ## Prerequisites
 Before start you need to have:
