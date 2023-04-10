@@ -1,6 +1,6 @@
 import os
 from functions import functions as f
-from classes import bot
+from classes.bot import Bot
 from sys import argv
 
 def main():
@@ -11,7 +11,7 @@ def main():
     
     api_key = argv[1]
     
-    b = bot.Bot(api_key)
+    b = Bot(api_key)
     os.system(f.command())
     init = True
     

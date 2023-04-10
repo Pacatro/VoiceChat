@@ -1,5 +1,7 @@
 import platform
-from classes import recorder, listener, bot
+from classes.recorder import Recorder
+from classes.listener import Listener
+from classes.bot import Bot
 
 def menu() -> int:
     print("\n1. Talk")
@@ -17,8 +19,8 @@ def command():
     return "cls"
 
 def listen_and_response() -> str:
-    r = recorder.Recorder()
-    l = listener.Listener()
+    r = Recorder()
+    l = Listener()
     
     print("Grabando...")
     print("Pulsa 'control + c' para parar")
@@ -28,7 +30,7 @@ def listen_and_response() -> str:
     
     return transcription
 
-def bot_response(b: bot.Bot, prompt: str):
+def bot_response(b: Bot, prompt: str):
     b.set_prompt(prompt)
     print("Escribiendo...\n")
     b.response()
