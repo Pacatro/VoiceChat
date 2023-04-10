@@ -22,8 +22,8 @@ def listen_and_response() -> str:
     r = Recorder()
     l = Listener()
     
-    print("Grabando...")
-    print("Pulsa 'control + c' para parar")
+    print("Recording...")
+    print("Press 'control+c' to stop")
     r.rec()
     
     transcription = l.transcribe_audio()
@@ -32,5 +32,5 @@ def listen_and_response() -> str:
 
 def bot_response(b: Bot, prompt: str):
     b.set_prompt(prompt)
-    print("Escribiendo...\n")
+    print("Writting...\n")
     b.response()

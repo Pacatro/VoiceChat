@@ -15,14 +15,14 @@ class Bot:
         self._PROMPT = prompt
         
         if prompt == "":
-            print("Prompt no detectado.")
+            print("Cannot detect prompt.")
             exit()
     
     def response(self):
         answer = self._CHATBOT.ask(self._PROMPT)
         tts = gTTS(answer, lang='es', tld='es')
         tts.save(self._ANSWER_AUDIO)
-        print("Asistente:", answer)
+        print("Assistant:", answer)
         
         playsound(self._ANSWER_AUDIO)
         remove(self._ANSWER_AUDIO)

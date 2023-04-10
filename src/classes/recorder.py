@@ -26,7 +26,8 @@ class Recorder:
             self._FILE = "./audio/question.mp3"
             self._FRAMES = []
             
-        self._STREAM = self._AUDIO.open(format = self._FORMAT, channels = self._CHANNELS, rate = self._RATE, input = self._INPUT, frames_per_buffer = self._CHUNK)
+        self._STREAM = self._AUDIO.open(format = self._FORMAT, channels = self._CHANNELS, rate = self._RATE, 
+                                        input = self._INPUT, frames_per_buffer = self._CHUNK)
 
     def rec(self):                
         while True:
@@ -36,7 +37,7 @@ class Recorder:
             except KeyboardInterrupt:
                 break
             
-        print("\nGrabación terminada\n")
+        print("\nFinished recording\n")
         
         self._STREAM.close()
         

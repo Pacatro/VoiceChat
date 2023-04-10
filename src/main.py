@@ -1,5 +1,5 @@
 import os
-from functions import functions as f
+from functions.functions import listen_and_response, menu, command, bot_response
 from classes.bot import Bot
 from sys import argv
 
@@ -12,28 +12,28 @@ def main():
     api_key = argv[1]
     
     b = Bot(api_key)
-    os.system(f.command())
+    os.system(command())
     init = True
     
-    print("//"+"-"*15 + "Asistente de voz" + "-"*15+"//")
+    print("//"+"-"*15 + "VoiceChat" + "-"*15+"//")
     
     while(init):
-        option = f.menu()
+        option = menu()
         
         if option == 1:
             print("\n")
-            answer = f.listen_and_response()    
-            print("\nTú:", answer, "\n")
-            f.bot_response(b, answer)
+            answer = listen_and_response()    
+            print("\nYou:", answer, "\n")
+            bot_response(b, answer)
         
         elif option == 2:
-            os.system(f.command())
+            os.system(command())
             init = False
         
         else:
-            print("Opción incorrecta\n")
-            input("Pulsa 'Enter' para continuar\n")
-            os.system(f.command())
+            print("Incorrect option\n")
+            input("Press 'Enter' to continue\n")
+            os.system(command())
     
     return 0
     

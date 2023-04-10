@@ -17,6 +17,6 @@ class Listener:
         result = model.transcribe(self._AUDIO_DIR, fp16=False)
         
         if(result["text"] == ""):
-            return "No ha escuchado nada :(\n"
+            return "I can't hear anything :(\n"
         
         return result["text"]
